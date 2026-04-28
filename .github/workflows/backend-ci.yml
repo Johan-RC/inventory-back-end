@@ -1,0 +1,33 @@
+name: Backend CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Dar permisos a Maven Wrapper
+        run: chmod +x mvnw
+
+      - name: Compilar backend
+        run: ./mvnw clean package -DskipTests
+
+      - name: Ejecutar deploy en Render
+        if: github.ref == 'refs/heads/main'
+        run: curl "$RENDER_DEPLOY_HOOK_URL"
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
