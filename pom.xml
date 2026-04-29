@@ -19,12 +19,12 @@
     <version>3.0.3</version>
     </dependency>
 
-    <!-- Info del proyecto -->
+    <!-- Información del proyecto -->
     <groupId>com.sena</groupId>
     <artifactId>inventoryapi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>inventoryapi</name>
-    <description>API CRUD con Spring Boot + PostgreSQL + Liquibase</description>
+    <description>API CRUD con Spring Boot + PostgreSQL + Liquibase + Swagger</description>
 
     <properties>
         <java.version>21</java.version>
@@ -32,45 +32,52 @@
 
     <dependencies>
 
-        <!-- API REST -->
+        <!-- API REST: permite crear controladores y endpoints HTTP -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- JPA / Hibernate -->
+        <!-- JPA / Hibernate: permite trabajar con entidades y repositorios -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- PostgreSQL -->
+        <!-- PostgreSQL: driver para conectar la aplicación con la base de datos -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Validaciones -->
+        <!-- Validaciones: permite usar @NotBlank, @NotNull, @Email, etc. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!-- Liquibase -->
+        <!-- Liquibase: gestiona las migraciones de base de datos -->
         <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-liquibase</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-liquibase</artifactId>
         </dependency>
 
-        <!-- Lombok (reduce código repetido) -->
+        <!-- Swagger / OpenAPI UI: genera documentación visual de la API -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <!-- Lombok: reduce código repetido como getters, setters y constructores -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- Tests -->
+        <!-- Tests: herramientas para pruebas automáticas -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -82,13 +89,13 @@
     <build>
         <plugins>
 
-            <!-- Plugin Spring Boot -->
+            <!-- Plugin de Spring Boot para empaquetar y ejecutar la aplicación -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- Compiler para Lombok -->
+            <!-- Configuración del compilador para que Lombok funcione correctamente -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
