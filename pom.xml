@@ -12,12 +12,6 @@
         <version>4.0.6</version>
         <relativePath/>
     </parent>
-    <!-- Swagger / OpenAPI UI -->
-    <dependency>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-    <version>3.0.3</version>
-    </dependency>
 
     <!-- Información del proyecto -->
     <groupId>com.sena</groupId>
